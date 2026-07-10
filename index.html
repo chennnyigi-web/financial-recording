@@ -587,7 +587,7 @@ function loadDemo(){
     {id:uid(),cat:"want",type:"信用卡當期",bank:"國泰世華",desc:"全聯",amt:792,note:"點數折抵 137",created:Date.now()-3},
     {id:uid(),cat:"want",type:"信用卡當期",bank:"CTBC",desc:"星巴克",amt:275,note:"",created:Date.now()-2},
     {id:uid(),cat:"need",type:"現金支出",bank:"",desc:"午餐",amt:500,note:"",created:Date.now()-1},
-    {id:uid(),cat:"need",type:"額外支出",bank:"",desc:"還錢給林于雅",amt:1490,note:"剩一期",created:Date.now()},
+    {id:uid(),cat:"need",type:"額外支出",bank:"",desc:"日常用品",amt:1490,note:"剩一期",created:Date.now()},
   ];
   b.bills=[{id:uid(),bank:"國泰世華",amt:9086,min:2737,due:isoDay(13)},{id:uid(),bank:"CTBC",amt:3017,min:1000,due:isoDay(15)}];
   save(); render(); toast("已載入範例，可自由編輯");
@@ -624,7 +624,7 @@ function syncForm(){
   $("#bankField").style.display=noBank?"none":"";
   $("#inbillRow").style.display=isFix?"flex":"none";
   $("#descLabel").textContent=isInv?"代號 / 名稱":"內容";
-  $("#fDesc").placeholder=isInv?"例如：0050、00878、台積電":"例如：全聯、保險、還錢給林于雅";
+  $("#fDesc").placeholder=isInv?"例如：0050、00878、台積電":"例如：全聯、保險、日常用品";
   $("#amtLabel").textContent=isInv?"每月投入金額":(isRec?"金額（每期）":"金額");
   const hint=$("#calcHint"), end=$("#fEnd").value;
   if(isInst&&end){const rem=Math.max(0,monthStrToIdx(end)-viewIdx+1),total=parseInt($("#fTotal").value)||0,shown=total?Math.min(rem,total):rem;hint.innerHTML=`依現在檢視的 ${idxLabel(viewIdx)}，這筆還剩 <b>${shown}${total?'/'+total:''}</b> 期。每換一個月會自動少一期。`;hint.classList.add("show");}else hint.classList.remove("show");
